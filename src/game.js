@@ -37,6 +37,7 @@ function randomSelection(array){
 
 function rockVictory() {
   if(computer.selection.type === classicOptions[0].type){
+    console.log('Draw');
     return 'Draw'
   }
   if(computer.selection.type === classicOptions[1].type){
@@ -51,6 +52,7 @@ function rockVictory() {
 
 function paperVictory() {
   if(computer.selection.type === classicOptions[1].type){
+    console.log('Draw');
     return 'Draw'
   }
   if(computer.selection.type === classicOptions[2].type){
@@ -65,6 +67,7 @@ function paperVictory() {
 
 function scissorsVictory() {
   if(computer.selection.type === classicOptions[2].type){
+    console.log('Draw');
     return 'Draw'
   }
   if(computer.selection.type === classicOptions[0].type){
