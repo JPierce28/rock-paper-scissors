@@ -7,25 +7,32 @@ var computer = new Player("Computer", "🤖");
 //-------------------Query Selectors---------------//
 
 var classicGame = document.querySelector(".classic-game");
+var classicBoard = document.querySelector(".classic-game-board");
+var humanWin = document.querySelector(".player-result");
 var difficultGame = document.querySelector(".difficult-game");
+var humanImage = document.querySelector("#human-selection");
+var computerImage = document.querySelector("#computer-selection");
 var playerInfo = document.querySelector(".player-info");
 var computerInfo = document.querySelector(".computer-info");
 var playerAvatar = document.querySelector("avatar");
 var homeScreen = document.querySelector(".home-view");
 var classicScreen = document.querySelector(".classic-game-view");
 var difficultScreen = document.querySelector(".difficult-game-view");
-var selectRock = document.querySelector(".rock-image");
-var selectPaper = document.querySelector(".paper-image");
-var selectScissors = document.querySelector(".scissors-image");
+var rockImage = document.querySelector(".rock-image");
+var paperImage = document.querySelector(".paper-image");
+var scissorsImage = document.querySelector(".scissors-image");
+var homeButton = document.querySelector(".home-button")
+
 
 //--------------------Event Listeners--------------//
 
 window.addEventListener("load", updatePlayerCard);
 classicGame.addEventListener("click", classicGameView);
 difficultGame.addEventListener("click", difficultGameView)
-selectRock.addEventListener("click", rockClassic);
-selectPaper.addEventListener("click", paperClassic);
-selectScissors.addEventListener("click", scissorsClassic);
+rockImage.addEventListener("click", playClassicGame);
+paperImage.addEventListener("click", playClassicGame);
+scissorsImage.addEventListener("click", playClassicGame);
+homeButton.addEventListener("click", returnHome)
 
 //--------------------Event Handlers-----------------//
 
@@ -50,6 +57,12 @@ function updatePlayerCard() {
   </div>`
 }
 
+function returnHome(){
+  displayHidden(classicScreen)
+  displayHidden(difficultScreen)
+  removeHidden(homeScreen)
+}
+
 function classicGameView(){
   displayHidden(homeScreen)
   removeHidden(classicScreen)
@@ -60,29 +73,39 @@ function difficultGameView() {
   removeHidden(difficultScreen)
 }
 
-function rockClassic() {
+function playClassicGame(event) {
   var newGame = new Game (human, computer)
-  human.selection = classicOptions[0];
-  computer.selection = (classicOptions[randomSelection(classicOptions)])
-  newGame.checkForWin(human.selection)
+  for (var i = 0; i < classicOptions.length; i++){
+    if(event.target.id === classicOptions[i].name){
+    human.selection = classicOptions[i].name
+    }
+  }
+  computer.selection = (classicOptions[randomSelection(classicOptions)].name)
+  classicGameBoard()
+  newGame.checkForWinClassic(human)
+  checkForWinner()
   updatePlayerCard()
 };
 
-function paperClassic() {
-  var newGame = new Game (human, computer)
-  human.selection = classicOptions[1];
-  computer.selection = (classicOptions[randomSelection(classicOptions)])
-  newGame.checkForWin(human.selection)
-  updatePlayerCard()
-};
+function classicGameBoard() {
+  displayHidden(classicScreen)
+  removeHidden(classicBoard)
+  // humanImage.innerText = human.selection.image
+  // computerImage.innerText = computer.selection.image
+}
 
-function scissorsClassic() {
-  var newGame = new Game (human, computer)
-  human.selection = classicOptions[2];
-  computer.selection = (classicOptions[randomSelection(classicOptions)])
-  newGame.checkForWin(human.selection)
-  updatePlayerCard()
-};
+function checkForWinner() {
+  if(human.isWinner === true && computer.isWinner === false){
+    return humanWin.innerText = "🎉You Win!🎉"
+  }
+  if(human.isWinner === false && computer.isWinner === true){
+    return humanWin.innerText = "You Lose"
+  }
+  if(human.isWinner === false && computer.isWinner === false){
+    return humanWin.innerText = "Draw!"
+  }
+}
+
 //--------------- Misc Functions---------------//
 
 function displayHidden(element){
