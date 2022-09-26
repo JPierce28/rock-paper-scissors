@@ -56,11 +56,12 @@ header > p {
   border-radius: 5px;
   height: 25%;
   width: 30%;
-  background-color: white;
+  background-color: lightblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 
@@ -70,13 +71,21 @@ header > p {
   border-radius: 5px;
   height: 25%;
   width: 30%;
-  background-color: white;
+  background-color: lightblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  cursor: pointer;
 }
 
+.classic-game:hover {
+  background-color: white;
+}
+
+.difficult-game:hover {
+  background-color: white;
+}
 
 .classic-game-view {
   background-color: skyblue;
@@ -85,6 +94,27 @@ header > p {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.difficult-game-view {
+  background-color: skyblue;
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rock-image {
+  cursor: pointer;
+}
+
+.paper-image {
+  cursor: pointer;
+}
+
+.scissors-image {
+  cursor: pointer;
 }
 
 .player-result {
