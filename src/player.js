@@ -6,9 +6,4 @@ class Player {
     this.wins = 0
     this.isWinner = null
   }
-  takeTurn() {
-    if(this.gameWon = true){
-      this.wins += 1
-    }
-  }
 }
