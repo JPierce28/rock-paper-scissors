@@ -1,23 +1,20 @@
 var human = new Player("Human", "😎");
 var computer = new Player("Computer", "🤖");
 
-// var newGame = new Game(human, computer);
-// newGame.checkForWin(human)
-
 //-------------------Query Selectors---------------//
 
 var classicGame = document.querySelector(".classic-game");
-var classicBoard = document.querySelector(".classic-game-board");
-var humanWin = document.querySelector(".player-result");
 var difficultGame = document.querySelector(".difficult-game");
-var humanImage = document.querySelector("#human-selection");
-var computerImage = document.querySelector("#computer-selection");
+var classicBoard = document.querySelector(".classic-game-board");
+var classicScreen = document.querySelector(".classic-game-view");
+var homeScreen = document.querySelector(".home-view");
+var difficultScreen = document.querySelector(".difficult-game-view");
+var humanWin = document.querySelector(".player-result");
+var humanImage = document.querySelector(".human-image");
+computerImage = document.querySelector(".computer-image");
 var playerInfo = document.querySelector(".player-info");
 var computerInfo = document.querySelector(".computer-info");
 var playerAvatar = document.querySelector("avatar");
-var homeScreen = document.querySelector(".home-view");
-var classicScreen = document.querySelector(".classic-game-view");
-var difficultScreen = document.querySelector(".difficult-game-view");
 var rockImage = document.querySelector(".rock-image");
 var paperImage = document.querySelector(".paper-image");
 var scissorsImage = document.querySelector(".scissors-image");
@@ -58,40 +55,49 @@ function updatePlayerCard() {
 }
 
 function returnHome(){
-  displayHidden(classicScreen)
   displayHidden(difficultScreen)
+  displayHidden(classicScreen)
   removeHidden(homeScreen)
+  displayHidden(homeButton)
 }
 
 function classicGameView(){
   displayHidden(homeScreen)
   removeHidden(classicScreen)
+  removeHidden(homeButton)
+  displayHidden(classicBoard)
+  removeHidden(paperImage)
+  removeHidden(scissorsImage)
+  removeHidden(rockImage)
 };
 
 function difficultGameView() {
   displayHidden(homeScreen)
   removeHidden(difficultScreen)
+  removeHidden(homeButton)
 }
 
 function playClassicGame(event) {
   var newGame = new Game (human, computer)
   for (var i = 0; i < classicOptions.length; i++){
     if(event.target.id === classicOptions[i].name){
-    human.selection = classicOptions[i].name
+    human.selection = classicOptions[i]
     }
   }
-  computer.selection = (classicOptions[randomSelection(classicOptions)].name)
+  computer.selection = (classicOptions[randomSelection(classicOptions)])
   classicGameBoard()
   newGame.checkForWinClassic(human)
   checkForWinner()
   updatePlayerCard()
+  setTimeout(() => classicGameView(), 2000)
 };
 
 function classicGameBoard() {
   displayHidden(classicScreen)
   removeHidden(classicBoard)
-  // humanImage.innerText = human.selection.image
-  // computerImage.innerText = computer.selection.image
+  displayHidden(homeButton)
+  humanImage.innerHTML = human.selection.image
+  computerImage.innerHTML = computer.selection.image
 }
 
 function checkForWinner() {

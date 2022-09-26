@@ -134,6 +134,18 @@ header > p {
   cursor: pointer;
 }
 
+.difficult-rock-image {
+  cursor: pointer;
+}
+
+.difficult-paper-image {
+  cursor: pointer;
+}
+
+.difficult-scissors-image {
+  cursor: pointer;
+}
+
 .player-result {
   font-size: 3em;
   font-style: oblique;
@@ -180,12 +192,13 @@ header > p {
 }
 
 button {
-  background-color: lightblue;
+  background-color: skyblue;
   border-radius: 7px;
   height: 5%;
-  width: 20%;
+  width: 50%;
   border-style: inset;
   font-style: oblique;
+  cursor: pointer;
 }
 
 button:hover {
