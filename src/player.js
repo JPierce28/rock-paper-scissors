@@ -4,6 +4,7 @@ class Player {
     this.avatar = avatar
     this.selection = selection
     this.wins = 0
+    this.isWinner = null
   }
   takeTurn() {
     if(this.gameWon = true){
