@@ -117,6 +117,14 @@ header > p {
   cursor: pointer;
 }
 
+.ninja-image {
+  cursor: pointer;
+}
+
+.ghost-image {
+  cursor: pointer;
+}
+
 .player-result {
   font-size: 3em;
   font-style: oblique;
