@@ -114,6 +114,15 @@ header > p {
   flex-direction: column;
 }
 
+.difficult-game-board {
+  background-color: skyblue;
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .rock-image {
   cursor: pointer;
 }
@@ -147,6 +156,11 @@ header > p {
 }
 
 .player-result {
+  font-size: 3em;
+  font-style: oblique;
+}
+
+.difficult-player-result {
   font-size: 3em;
   font-style: oblique;
 }
