@@ -1,31 +1,18 @@
-var classicOptions = [{
-  type: "Rock",
-  image: "insert image here"},
-  {type: "Paper",
-  image: "insert image here"},
-  {type: "Scissors",
-  image: "insert image here"
-}];
-
-var player1 = new Player("Josh", "🥷🏿", classicOptions[randomSelection(classicOptions)])
-
-var computer = new Player("Computer", "🤖",
-classicOptions[randomSelection(classicOptions)])
-
-
+var classicOptions = ["Rock", "Paper", "Scissors"]
+//(classicOptions[randomSelection(classicOptions)])
 class Game {
-  constructor(player1, computer) {
-    this.player1 = player1
+  constructor(human, computer) {
+    this.human = human
     this.computer = computer
   }
-  checkForWin(player1){
-    if(this.player1.selection.type === "Rock"){
+  checkForWin(human){
+    if(this.human.selection === "Rock"){
       rockVictory()
     }
-    if(this.player1.selection.type === "Paper"){
+    if(this.human.selection === "Paper"){
       paperVictory()
     }
-    if(this.player1.selection.type === "Scissors") {
+    if(this.human.selection === "Scissors") {
       scissorsVictory()
     }
   }
@@ -36,50 +23,43 @@ function randomSelection(array){
 }
 
 function rockVictory() {
-  if(computer.selection.type === classicOptions[0].type){
-    console.log('Draw');
+  if(computer.selection === classicOptions[0]){
     return 'Draw'
   }
-  if(computer.selection.type === classicOptions[1].type){
+  if(computer.selection === classicOptions[1]){
     computer.wins+= 1
     return 'Loss'
   }
-  if(computer.selection.type === classicOptions[2].type){
-    player1.wins+= 1
+  if(computer.selection === classicOptions[2]){
+    human.wins+= 1
     return '🎉 WIN! 🎉'
   }
 }
 
 function paperVictory() {
-  if(computer.selection.type === classicOptions[1].type){
-    console.log('Draw');
+  if(computer.selection === classicOptions[1]){
     return 'Draw'
   }
-  if(computer.selection.type === classicOptions[2].type){
+  if(computer.selection === classicOptions[2]){
     computer.wins+= 1
     return 'Loss'
   }
-  if(computer.selection.type === classicOptions[0].type){
-    player1.wins+= 1
+  if(computer.selection === classicOptions[0]){
+    human.wins+= 1
     return '🎉 WIN! 🎉'
   }
 }
 
 function scissorsVictory() {
-  if(computer.selection.type === classicOptions[2].type){
-    console.log('Draw');
+  if(computer.selection === classicOptions[2]){
     return 'Draw'
   }
-  if(computer.selection.type === classicOptions[0].type){
+  if(computer.selection === classicOptions[0]){
     computer.wins+= 1
     return 'Loss'
   }
-  if(computer.selection.type === classicOptions[1].type){
-    player1.wins+= 1
+  if(computer.selection === classicOptions[1]){
+    human.wins+= 1
     return '🎉 WIN! 🎉'
   }
 }
-var newGame = new Game(player1, computer);
-newGame.checkForWin(player1)
-console.log(player1);
-console.log(computer);

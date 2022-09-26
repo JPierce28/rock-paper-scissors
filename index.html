@@ -5,15 +5,7 @@
   </head>
     <body>
       <section class="player-card">
-        <article class="player-info">
-          <div class="player-name">
-            <p class="avatar">😎</p>
-            <p class="name">Human</p>
-          </div>
-          <div class="player-wins">
-            <p>Wins:</p>
-            <p class="player-win-count"></p>
-          </div>
+        <article class="player-info" id="player">
         </article>
       </section>
       <section class="home-view">
@@ -22,7 +14,7 @@
         </header>
         <section class="classic-game">
           <p>🪨 Classic ✂️</p>
-          <div class="classis-rules">
+          <div class="classic-rules">
             <p>Rock > Scissors</p>
             <p>Paper > Rock</p>
             <p>Scissors > Paper</p>
@@ -58,16 +50,33 @@
           <p class="player-result"></p>
         </div>
       </section>
+      <section class="difficult-game-view hidden">
+        <header>
+          <p>Choose your fighter!</p>
+        </header>
+        <section class="images">
+          <span class="rock-image">
+            <img src="./assets/rock-image.jpg" alt="rock-image">
+          </span>
+          <span class="paper-image">
+            <img src="./assets/paper-image.jpg" alt="paper-image">
+          </span>
+          <span class="scissors-image">
+            <img src="./assets/scissors-image.jpg" alt="scissors-image">
+          </span>
+          <span class="nina-image">
+            <img src="" alt="ninja-image">
+          </span>
+          <span class="ghost-image">
+            <img src="" alt="ghost-image">
+          </span>
+        </section>
+        <div class="game-result">
+          <p class="player-result"></p>
+        </div>
+      </section>
       <section class="computer-card">
         <article class="computer-info">
-          <div class="computer-name">
-            <p class="avatar">🤖</p>
-            <p class="name">Computer</p>
-          </div>
-          <div class="computer-wins">
-            <p>Wins:</p>
-            <p class="computer-win-count"></p>
-          </div>
         </article>
       </section>
       <script src="src/player.js"></script>
