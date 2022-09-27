@@ -90,11 +90,6 @@ function difficultGameView() {
   displayHidden(difficultBoard)
   removeHidden(difficultScreen)
   removeHidden(changeGameButton)
-  removeHidden(difficultPaperImage)
-  removeHidden(difficultScissorsImage)
-  removeHidden(difficultRockImage)
-  removeHidden(ninjaImage)
-  removeHidden(ghostImage)
 };
 
 function playClassicGame(event) {
@@ -164,3 +159,7 @@ function displayHidden(element){
 function removeHidden(element) {
   element.classList.remove("hidden")
 };
+
+function randomSelection(array){
+  return Math.floor(Math.random() * array.length)
+}
