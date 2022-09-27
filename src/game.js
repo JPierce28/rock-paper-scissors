@@ -1,24 +1,3 @@
-var classicOptions = [{
-  name: "Rock",
-  image: `<img src="./assets/rock-image.jpg">`},
-  {name: "Paper",
-  image: `<img src="./assets/paper-image.jpg">`},
-  {name: "Scissors",
-  image: `<img src="./assets/scissors-image.jpg">`
- }]
-var difficultOptions = [{
-  name: "Rock",
-  image: `<img src="./assets/rock-image.jpg">`},
-  {name: "Paper",
-  image: `<img src="./assets/paper-image.jpg">`},
-  {name: "Scissors",
-  image: `<img src="./assets/scissors-image.jpg">`},
-  {name: "Ninja",
-  image: `<img src="./assets/ninja-image.jpg">`},
-  {name: "Ghost",
-  image: `<img src="./assets/ghost-image.jpg">`
- }]
-
 class Game {
   constructor(human, computer) {
     this.human = human
@@ -43,9 +22,27 @@ class Game {
   }
 };
 
-function randomSelection(array){
-  return Math.floor(Math.random() * array.length)
-}
+var classicOptions = [{
+  name: "Rock",
+  image: `<img src="./assets/rock-image.jpg">`},
+  {name: "Paper",
+  image: `<img src="./assets/paper-image.jpg">`},
+  {name: "Scissors",
+  image: `<img src="./assets/scissors-image.jpg">`
+}];
+
+var difficultOptions = [{
+  name: "Rock",
+  image: `<img src="./assets/rock-image.jpg">`},
+  {name: "Paper",
+  image: `<img src="./assets/paper-image.jpg">`},
+  {name: "Scissors",
+  image: `<img src="./assets/scissors-image.jpg">`},
+  {name: "Ninja",
+  image: `<img src="./assets/ninja-image.jpg">`},
+  {name: "Ghost",
+  image: `<img src="./assets/ghost-image.jpg">`
+}];
 
 function rockAssesment() {
   if(computer.selection.name === classicOptions[0].name){
@@ -70,7 +67,7 @@ function rockAssesment() {
     computer.isWinner = false
     return '🎉 WIN! 🎉'
   }
-}
+};
 
 function paperAssesment() {
   if(computer.selection.name === classicOptions[1].name){
@@ -93,7 +90,7 @@ function paperAssesment() {
     computer.isWinner = false
     return '🎉 WIN! 🎉'
   }
-}
+};
 
 function scissorsAssesment() {
   if(computer.selection.name === classicOptions[2].name){
@@ -116,7 +113,8 @@ function scissorsAssesment() {
     computer.isWinner = false
     return '🎉 WIN! 🎉'
   }
-}
+};
+
 function ninjaAssesment() {
   if(computer.selection.name === difficultOptions[3].name){
     //this is ninja vs ninja
@@ -138,7 +136,7 @@ function ninjaAssesment() {
     computer.isWinner = false
     return '🎉 WIN! 🎉'
   }
-}
+};
 
 function ghostAssesment() {
   if(computer.selection.name === difficultOptions[4].name){
@@ -161,4 +159,4 @@ function ghostAssesment() {
     computer.isWinner = false
     return '🎉 WIN! 🎉'
   }
-}
+};
